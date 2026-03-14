@@ -55,6 +55,28 @@ func TestComputeValues_Success(t *testing.T) {
 	}
 }
 
+func TestSum(t *testing.T) {
+	t.Parallel()
+
+	tests := map[string]struct {
+		input []int
+		want  int
+	}{
+		"several elements": {input: []int{1, 2, 3, 4}, want: 10},
+		"empty slice":      {input: []int{}, want: 0},
+		"single element":   {input: []int{42}, want: 42},
+	}
+
+	for name, tt := range tests {
+		t.Run(name, func(t *testing.T) {
+			t.Parallel()
+			if got := Sum(tt.input); got != tt.want {
+				t.Errorf("Sum(%v) = %d, want %d", tt.input, got, tt.want)
+			}
+		})
+	}
+}
+
 func TestComputeValues_Error(t *testing.T) {
 	t.Parallel()
 

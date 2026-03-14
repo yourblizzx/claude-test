@@ -13,3 +13,12 @@ func ComputeValues(n int) ([]int, error) {
 	}
 	return results, nil
 }
+
+// Sum возвращает сумму элементов слайса.
+func Sum(nums []int) int {
+	total := 0
+	for _, v := range nums {
+		total += v
+	}
+	return total
+}
